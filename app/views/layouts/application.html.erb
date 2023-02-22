@@ -13,10 +13,13 @@
     <p>
     <!-- if user logged in -->
     <% @current_user = User.find_by({"id"=>session["user_id"]})%>
+     <% if @current_user %>
     Hey, <%= @current_user["first_name"] %>
-    <!-- else -->
+    <%= %>
+    <% else %>
       <a href="/users/new">Sign Up</a>
       <q href="/sessions/new">Log in</a>
+      <%end%>
     </p>
 
     <p>
